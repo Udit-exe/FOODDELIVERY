@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
 import axios from "axios"
+import { toast } from 'react-toastify'
 
 const Add = () => {
     const url = 'https://bookish-space-capybara-7v9wjv455w5whrrp7-4001.app.github.dev';
@@ -12,7 +13,7 @@ const Add = () => {
       name:"",
       description:"",
       price:"",
-      category:"Salad"
+      category:"Salad",
     })
 
     const onChangeHandler = (event) => {
@@ -27,7 +28,7 @@ const Add = () => {
       formData.append("name", data.name) 
       formData.append("description", data.description)
       formData.append("price", Number(data.price))
-      formData.append("category", Number(data.category))
+      formData.append("category", data.category)
       formData.append("image", image)
      
       const response = await axios.post(`${url}/api/food/add`,formData)
@@ -36,12 +37,13 @@ const Add = () => {
           name:"",
           description:"",
           price:"",
-          category:"Salad"
+          category: "Salad",
         })
         setImage(false)
+        toast.success(response.data.message)
       }
       else{
-
+        toast.error(response.data.message )
       }
     }
 

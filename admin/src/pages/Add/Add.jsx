@@ -4,9 +4,8 @@ import { assets } from '../../assets/assets'
 import axios from "axios"
 import { toast } from 'react-toastify'
 
-const Add = () => {
-    const url = 'https://bookish-space-capybara-7v9wjv455w5whrrp7-4001.app.github.dev';
-
+const Add = ({url}) => {
+    
     const [image,setImage] = useState(false);
   
     const [data,setData] = useState({

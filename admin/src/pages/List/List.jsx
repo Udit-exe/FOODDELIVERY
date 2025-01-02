@@ -3,9 +3,8 @@ import './List.css'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const List = () => {
+const List = ({url}) => {
   
-  const url = 'https://bookish-space-capybara-7v9wjv455w5whrrp7-4001.app.github.dev';
   const [list,setList] = useState([]);
 
   const fetchList = async () => {

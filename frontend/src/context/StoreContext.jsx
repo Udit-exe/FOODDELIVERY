@@ -5,6 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
+  const url = "https://bookish-space-capybara-7v9wjv455w5whrrp7-4001.app.github.dev"
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
@@ -36,6 +37,7 @@ const StoreContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    url,  
   };
 
   return (

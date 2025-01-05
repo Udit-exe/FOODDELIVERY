@@ -13,7 +13,7 @@ const loginUser = async (req, res) => {
             res.json({success:false, message:"User Does Not Exists"});
         }
 
-        const isMatch = await bcrypt.compare(user.password , password)
+        const isMatch = await bcrypt.compare(password, user.password )
         if(!isMatch){
             return res.json({success:false, message:"Invalid Credentials"})
         }
